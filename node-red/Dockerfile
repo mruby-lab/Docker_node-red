@@ -1,18 +1,20 @@
 FROM nodered/node-red:latest
 
-
+# リポジトリの追加
 COPY node-red-contrib-mrubyc-rboard ./node-red-contrib-mrubyc-rboard
-
-RUN npm install ./node-red-contrib-mrubyc-rboard
-
-
 COPY node-red-contrib-original ./node-red-contrib-original
 
-# RUN npm install ./node-red-contrib-original
+RUN npm install ./node-red-contrib-mrubyc-rboard
+RUN npm install ./node-red-contrib-original
 
-#ノード整理
 
-#common
+# ノード整理
+
+# nodes
+#RUN rm ./node-red-contrib-mrubyc-rboard/LED.html
+#RUN rm ./node-red-contrib-mrubyc-rboard/LED.js
+
+# common
 RUN rm ./node_modules/@node-red/nodes/core/common/05-junction.html
 RUN rm ./node_modules/@node-red/nodes/core/common/05-junction.js
 
@@ -29,7 +31,7 @@ RUN rm ./node_modules/@node-red/nodes/core/common/98-unknown.html
 RUN rm ./node_modules/@node-red/nodes/core/common/98-unknown.js
 
 
-#function
+# function
 RUN rm ./node_modules/@node-red/nodes/core/function/16-range.html
 RUN rm ./node_modules/@node-red/nodes/core/function/16-range.js
 
@@ -43,7 +45,7 @@ RUN rm ./node_modules/@node-red/nodes/core/function/rbe.html
 RUN rm ./node_modules/@node-red/nodes/core/function/rbe.js
 
 
-#network
+# network
 RUN rm ./node_modules/@node-red/nodes/core/network/05-tls.html
 RUN rm ./node_modules/@node-red/nodes/core/network/05-tls.js
 
@@ -69,7 +71,7 @@ RUN rm ./node_modules/@node-red/nodes/core/network/32-udp.html
 RUN rm ./node_modules/@node-red/nodes/core/network/32-udp.js
 
 
-#parsers
+# parsers
 RUN rm ./node_modules/@node-red/nodes/core/parsers/70-CSV.html
 RUN rm ./node_modules/@node-red/nodes/core/parsers/70-CSV.js
 
@@ -86,8 +88,8 @@ RUN rm ./node_modules/@node-red/nodes/core/parsers/70-YAML.html
 RUN rm ./node_modules/@node-red/nodes/core/parsers/70-YAML.js
 
 
-#sequence
-#RUN rm -R ./node_modules/@node-red/nodes/core/sequence
+# sequence
+# RUN rm -R ./node_modules/@node-red/nodes/core/sequence
 
 RUN rm ./node_modules/@node-red/nodes/core/sequence/17-split.html
 RUN rm ./node_modules/@node-red/nodes/core/sequence/17-split.js
@@ -99,6 +101,6 @@ RUN rm ./node_modules/@node-red/nodes/core/sequence/19-batch.html
 RUN rm ./node_modules/@node-red/nodes/core/sequence/19-batch.js
 
 
-#storage
-#RUN rm ./node_modules/@node-red/nodes/core/storage/
+# storage
+# RUN rm ./node_modules/@node-red/nodes/core/storage/
 
