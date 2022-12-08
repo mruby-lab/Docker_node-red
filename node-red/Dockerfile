@@ -8,8 +8,7 @@ RUN npm install ./node-red-contrib-mrubyc-rboard
 
 COPY node-red-contrib-original ./node-red-contrib-original
 
-RUN npm install ./node-red-contrib-original
-
+# RUN npm install ./node-red-contrib-original
 
 #ノード整理
 
