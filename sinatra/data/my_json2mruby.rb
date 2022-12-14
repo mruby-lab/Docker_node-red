@@ -240,7 +240,7 @@ nodes_Hash.each do |node|
       created_node_parts << Create_LEDnode(node, created_node_parts)
     end
   end
-  #sampleLEDノードのプログラム記述
+  #sampleLEDノードのプログラム記述(ノードタイプをLEDに合わせる)
   if node[1][:type] == "sampleLED"
     node[1][:type] = "LED"
   end
