@@ -240,6 +240,10 @@ nodes_Hash.each do |node|
       created_node_parts << Create_LEDnode(node, created_node_parts)
     end
   end
+  #sampleLEDノードのプログラム記述
+  if node[1][:type] == "sampleLED"
+    node[1][:type] = "LED"
+  end
 
   #switchノードのプログラム記述
   if node[1][:type] == "switch"
@@ -301,7 +305,7 @@ end
 count = 0
 
 nodes_Hash.each do |element|
-  if "GPIO" != element[1][:type] && "Button" != element[1][:type] && "LED" != element[1][:type]
+  if "GPIO" != element[1][:type] && "Button" != element[1][:type] && "LED" != element[1][:type] && "sampleLED" != element[1][:type]
     next
   end
 
@@ -329,7 +333,7 @@ nodes_Hash.each do |element|
     end    
   end
 
-  if "LED" == element[1][:type] && "using_LED" == element[1][:HOWuesLED]
+  if ( "LED" == element[1][:type] || "sampleLED" == element[1][:type] ) && "using_LED" == element[1][:HOWuesLED]
     File.open(mrubyc_program, mode = "a"){|f|
       f.write("pinMode(#{element[1][:targetPort]},0)\n")  # ファイルに書き込む
     }  

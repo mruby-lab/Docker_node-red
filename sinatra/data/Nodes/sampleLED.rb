@@ -1,4 +1,4 @@
-#this is LED Node
+#this is sampleLED Node
 
 def GPIO_digital_mode1(node_id,input)
     if input == 1
