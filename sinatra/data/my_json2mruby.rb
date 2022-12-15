@@ -231,6 +231,17 @@ nodes_Hash.each do |node|
   if created_node_num.include?(node[1][:type]) == false
     created_node_num.store(node[1][:type],0)
   end
+  
+  #sampleLEDノードのプログラム記述(ノードタイプをLEDに合わせる)
+  if node[1][:type] == "sampleLED"
+    node[1][:type] = "LED"
+  end
+
+  #initLCDノードのプログラム記述(ノードタイプをI2CDに合わせる)
+  if node[1][:type] == "initLCD"
+    node[1][:type] = "I2C"
+  end
+
   #LEDノードのプログラム記述
   if node[1][:type] == "LED"
     created_node_num["LED"] += 1
@@ -240,10 +251,7 @@ nodes_Hash.each do |node|
       created_node_parts << Create_LEDnode(node, created_node_parts)
     end
   end
-  #sampleLEDノードのプログラム記述(ノードタイプをLEDに合わせる)
-  if node[1][:type] == "sampleLED"
-    node[1][:type] = "LED"
-  end
+  
 
   #switchノードのプログラム記述
   if node[1][:type] == "switch"
@@ -305,7 +313,7 @@ end
 count = 0
 
 nodes_Hash.each do |element|
-  if "GPIO" != element[1][:type] && "Button" != element[1][:type] && "LED" != element[1][:type] && "sampleLED" != element[1][:type]
+  if "GPIO" != element[1][:type] && "Button" != element[1][:type] && "LED" != element[1][:type]
     next
   end
 
@@ -333,7 +341,7 @@ nodes_Hash.each do |element|
     end    
   end
 
-  if ( "LED" == element[1][:type] || "sampleLED" == element[1][:type] ) && "using_LED" == element[1][:HOWuesLED]
+  if "LED" == element[1][:type] && "using_LED" == element[1][:HOWuesLED]
     File.open(mrubyc_program, mode = "a"){|f|
       f.write("pinMode(#{element[1][:targetPort]},0)\n")  # ファイルに書き込む
     }  

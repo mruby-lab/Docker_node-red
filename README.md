@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Docker_node-red
 
 以下のコマンドで、全てのサービスが起動する。
@@ -151,3 +152,16 @@ RUN rm ./node_modules/@node-red/nodes/core/xxx/xxx.js
 (3)```docker-compose build```でイメージを構築する。
 
 　```docker-compose up -d```でコンテナを開始する。
+=======
+# WebSerial-APIを用いたコード転送環境
+
+*実行手順*
+1. `onConnect`ボタンを押す
+2. `ファイルを選択`ボタンで転送したい.mrbファイルを選択
+3. RBoardのRSボタンを押してコマンド受付モードにする
+4. `write`ボタンを押して書き込む
+
+- シリアルポートを変更する場合
+  
+  `disConnect`ボタンを押してポートを切断後`onConnect`ボタンを押して再接続
+>>>>>>> b3318e560c2745434df0bba31b66394610f35fb2
