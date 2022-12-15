@@ -5,9 +5,13 @@ module.exports = function (RED) {
         var node = this;
 
         this.on('input', function (msg) {
-            if (node.Pin_num <= 0 || node.Pin_num != isNaN) {
-                node.warn("Pin番号が正しくありません。正しいPin番号を入力して下さい。");
-                node.send(msg);
+
+            if (node.targetPort < 0 || isNaN(node.targetPort)) {
+                throw new Error("Pin番号が正しくありません。正しいPin番号を入力して下さい。");
+
+            } else if (node.targetPort == "") {
+                throw new Error("Pin番号が設定されていません。Pin番号を設定して下さい。");
+
             }
         });
     }

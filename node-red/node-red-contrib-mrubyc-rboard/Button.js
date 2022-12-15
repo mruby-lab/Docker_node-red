@@ -1,25 +1,29 @@
 ﻿module.exports = function(RED) {
 	"use strict"
 	
-	function ButtonNode(config) {
-		RED.nodes.createNode(this,config);
-		var node = this;
-		var msg = {};
-
-		this.targetPort = config.targetPort;
-		this.onBoardButton = config.onBoardButton;
+    function Button_Node(config) {
+        RED.nodes.createNode(this, config);
+        var node = this;
 
 
-		this.on('input', function (msg) {
-			if (node.targetPort <= 0 || node.targetPort != isNaN) {
-				node.warn("Pin番号が正しくありません。正しいPin番号を入力してください。");
-				node.send(msg);
-			}
+        this.targetPort = config.targetPort;
+        
 
-		});
 
-		return;
 
+
+        node.on('input', function () {
+
+            if (node.targetPort < 0 || isNaN(node.targetPort)) {
+                throw new Error("Pin番号が正しくありません。正しいPin番号を入力して下さい。");
+
+            } else if (node.targetPort == "") {
+                throw new Error("Pin番号が設定されていません。Pin番号を設定して下さい。");
+
+            }
+
+
+        });
 	}
-	RED.nodes.registerType("Button",ButtonNode);
+	RED.nodes.registerType("Button",Button_Node);
 }
