@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <title>データフロープログラミング for mruby/c</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--     -->
+</head>
+<body>
+    <h1 id="rboard">RBoardに転送</h1>
+    <!-- <h1>Web Serial API Console</h1> -->
+    <button onclick="onConnectButtonClick()">onConnect</button><br>
+    <button onclick="disConnectButtonClick()" id="disConnectButton">disConnect</button><br>
+    <!-- <form method="post" action="" enctype="multipart/form-data">
+        <input type="file" id="sendInput" onload="fileLoad">
+    </form> -->
+    <input type="file" id="sendInput"><br>
+    <button onclick="writeButtonClick()">write</button><br>
+    
+    <br>
+    <textarea cols="80" rows="20" id="outputArea" readonly></textarea>
+    <br><br><br>
+
+    <!--   ruby code editor   -->
+    <h1 id="ruby">Rubyコードの書き込み</h1>
+    <h3>Rubyコードを書き込んでください。</h3>
+    <textarea id="input_code" name="input_code" rows="20" cols="60">ここにRubyコードを書き込む</textarea><br>
+    <button onclick="save();">保存</button>
+
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
