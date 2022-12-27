@@ -5,9 +5,11 @@
         defaults: {
             name: { value: "" },
             LEDtype: { value: "onBoardLED" },
+            onBoardLED: { value: "" },
             targetPort: { value: "" },
             targetPort_mode: { value: "0" },
-            onBoardLED: { value: "" }
+            onBoard_mode: { value: "0" }
+            
         },
         inputs: 1,
         outputs: 0,
@@ -28,25 +30,7 @@
                     $("#LED-conected-Pin").hide();
                     $("#LED-onBoard").show();
                 }
-            }).trigger("change");
-
-
-
-
-            /*$("#node-input-targetPort_mode").on("change", function () {
-                var value = "";
-                var targetPort_mode = this.value;
-                if (targetPort_mode === "2") {
-                    if ( === "false") {
-                        value="0";
-                    } else if ( === "true"){
-                        value="1";
-                    }
-                }
-                $("#node-input-targetPort_mode").val(value);
-            }).trigger("change");
-*/
-
+            }).trigger("change");          
            
         }
 
@@ -88,19 +72,29 @@
             <option value="14">14:D2 and D3 and D4</option>
             <option value="15">15:all LED</option>
         </select>
+
+        <div class="form-row">
+            <label for="node-input-onBoard_mode"><i class="icon-tag"></i> LEDのON/OFFモード</label>
+                <select id="node-input-onBoard_mode">
+                    <option value="0">トグル</option>
+                    <option value="1">injectの値に従って切り替える</option>
+                </select>
+        </div>
     </div>
 
-    <div id="LED-conected-Pin" class="form-row">
-        <label for="node-input-targetPort"><i class="icon-tag"></i> Pin番号</label>
-        <input type="text" id="node-input-targetPort" placeholder="LEDと接続しているPin番号を入力">
+    <div id="LED-conected-Pin">
+        <div class="form-row">
+            <label for="node-input-targetPort"><i class="icon-tag"></i> Pin番号</label>
+            <input type="text" id="node-input-targetPort" placeholder="LEDと接続しているPin番号を入力">
 
-
-        <label for="node-input-targetPort_mode"><i class="icon-tag"></i> LEDのON/OFFモード</label>
-        <select id="node-input-targetPort_mode">
-            <option value="0">0 (OFF)</option>
-            <option value="1">1 (ON)</option>
-            <option value="2">入力に従ってONとOFFを切り替える</option>
-        </select>
+    
+            <label for="node-input-targetPort_mode"><i class="icon-tag"></i> LEDのON/OFFモード</label>
+            <select id="node-input-targetPort_mode">
+                <option value="0">トグル</option>
+                <option value="1">injectの値に従って切り替える</option>
+            </select>
+        </div>             
+        
     </div>
 
 </script>

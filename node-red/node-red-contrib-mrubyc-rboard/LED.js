@@ -7,10 +7,12 @@ module.exports = function(RED) {
         
         this.targetPort = config.targetPort;
         this.onBoardLED = config.onBoardLED;
+        this.targetPort_mord = config.targetPort_mode;
+        this.onBoard_mord = config.onBoard_mode;
         
 
 
-
+        //エラーハンドリング
         node.on('input', function () {
 
             if (node.targetPort < 0 || isNaN(node.targetPort)) {
@@ -20,10 +22,14 @@ module.exports = function(RED) {
                 throw new Error("オンボードLED、またはPin番号が設定されていません。オンボードLED、またはPin番号を設定して下さい。");
 
             }         
-           
+        
+
+        //LED点滅のコンソールへの出力
+            /*if (node.onBoard_mode === "0") {
+                
+            }*/
 
          });
-
 
         
 
