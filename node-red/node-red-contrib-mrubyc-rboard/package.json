@@ -12,7 +12,8 @@
       "Format_NodeType": "Format_NodeType.js",
       "ADC": "ADC.js",
       "Trigger": "Trigger.js",
-      "PWM": "PWM.js"
+      "PWM": "PWM.js",
+      "Parameter": "Parameter.js"
     }
   },
   "version": "1.0.2",

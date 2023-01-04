@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    
     RED.nodes.registerType('LED', {
         category: 'mruby_Rboad_Nodes',
         color: "#ffe3a6",
@@ -77,7 +78,7 @@
             <label for="node-input-onBoard_mode"><i class="icon-tag"></i> LEDのON/OFFモード</label>
                 <select id="node-input-onBoard_mode">
                     <option value="0">トグル</option>
-                    <option value="1">injectの値に従って切り替える</option>
+                    <option value="1">上流ノードの値に従って切り替える</option>
                 </select>
         </div>
     </div>
@@ -91,7 +92,7 @@
             <label for="node-input-targetPort_mode"><i class="icon-tag"></i> LEDのON/OFFモード</label>
             <select id="node-input-targetPort_mode">
                 <option value="0">トグル</option>
-                <option value="1">injectの値に従って切り替える</option>
+                <option value="1">上流ノードの値に従って切り替える</option>
             </select>
         </div>             
         

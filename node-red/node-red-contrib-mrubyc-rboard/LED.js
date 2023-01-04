@@ -4,14 +4,12 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         var node = this;
         
-        
         this.targetPort = config.targetPort;
         this.onBoardLED = config.onBoardLED;
         this.targetPort_mord = config.targetPort_mode;
         this.onBoard_mord = config.onBoard_mode;
         
-
-
+        
         //エラーハンドリング
         node.on('input', function () {
 
@@ -24,10 +22,31 @@ module.exports = function(RED) {
             }         
         
 
+
         //LED点滅のコンソールへの出力
-            /*if (node.onBoard_mode === "0") {
-                
+            /*var payloadType;
+            
+            if (node.onBoard_mode === "0") {
+                if (payloadType === num){
+                    if (value === "1") {
+                        console.log("LED_ON");
+                    } else if (value　=== "0") { 
+                        console.log("LED_OFF");
+                    }
+                }
             }*/
+        
+            //return msg;
+                
+            /*if (node.onBoard_mode === "1") {
+                if (injectの値) {
+                    console.log("LED_ON");
+                } else if (injectの値) {
+                    console.log("LED_OFF");
+                }
+            }*/
+
+            
 
          });
 
